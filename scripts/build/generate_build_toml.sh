@@ -204,10 +204,10 @@ echo
 
 cargo clean
 if [[ -z "${CROSS_TARGET_ARCH}" ]]; then
-AWS_LC_SYS_CMAKE_BUILDER=0 cargo build --package aws-lc-sys --profile dev
+AWS_LC_SYS_CMAKE_BUILDER=0 cargo test --package aws-lc-sys --profile dev
 AWS_LC_SYS_CMAKE_BUILDER=0 cargo test --package aws-lc-rs --profile dev
 else
-AWS_LC_SYS_CMAKE_BUILDER=0 cross build --package aws-lc-sys --profile dev --target ${CROSS_TARGET_ARCH}
+AWS_LC_SYS_CMAKE_BUILDER=0 cross test --package aws-lc-sys --profile dev --target ${CROSS_TARGET_ARCH}
 AWS_LC_SYS_CMAKE_BUILDER=0 cross test --package aws-lc-rs --profile dev --target ${CROSS_TARGET_ARCH}
 fi
 popd
